@@ -1,10 +1,13 @@
-/* CUSTOM-PROPS */
-:root {
-
-}
 
 /* FONT-FACE  */
-
+@font-face {
+  font-family: "Cursed Timer Ulil";
+  src: url("../fonts/CursedTimerUlil.woff2") format("woff2"),
+  url("../fonts/CursedTimerUlil.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* GLOBAL-STYLES  */
 html {
@@ -23,10 +26,10 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #fff;
+  background-color: #1b244a;
   color: #222;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
+  font-family: "Cursed Timer Ulil", "Arial", sans-serif;
+  font-size: 18px;
   line-height: 1.5;
   padding: 0;
   margin: 0;
@@ -40,16 +43,16 @@ img {
 
 /* FOCUS-STYLES  */
 *:focus {
-  outline: 3px dashed var(black);
+  outline: 3px dashed white;
   outline-offset: 3px;
 }
 
 /* CONTAINER  */
 .container {
-  max-width: 1200px;
+  max-width: 640px;
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,8 +70,148 @@ img {
   overflow: hidden;
 }
 
+/* LOADER */
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #1b244a;
+  transition: opacity 0.3s ease;
+}
+
+.loader-wrapper--open {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color:#de3500 #0000 #fff #0000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: 1s rotate linear infinite;
+}
+
+.loader:before , .loader:after{
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 10px solid transparent;
+  border-bottom-color:#fff;
+  transform: translate(-10px, 19px) rotate(-35deg);
+}
+
+.loader:after {
+  border-color: #de3500 #0000 #0000 #0000 ;
+  transform: translate(32px, 3px) rotate(-35deg);
+}
+
+@keyframes rotate {
+  100%{    transform: rotate(360deg)}
+}
+
 
 /* MAIN-CONTENT  */
 .main-content {
   flex-grow: 1;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.scoreboard__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.reset {
+  padding: 10px;
+  font-family: "Verdana", "Arial", sans-serif;
+  background-color: #9aabd8;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease,
+  opacity 0.2s ease;
+}
+
+.reset:hover {
+  opacity: 0.8;
+}
+
+.reset:active {
+  transform: scale(0.9);
+}
+
+.scoreboard__board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 155px;
+}
+
+.scoreboard__title {
+  margin-top: 0;
+  margin-bottom: 21px;
+  color: #eeeeee;
+  font-family: "Verdana", "Arial, sans-serif";
+  font-style: 40px;
+  line-height: 0.9;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.scoreboard__score {
+  color: #f94f6d;
+  font-size: 90px;
+  line-height: 1.4;
+  padding: 0 19px;
+  background-color: #080001;
+  border-radius: 5px;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.scoreboard__scoresheets {
+  padding-top: 26px;
+}
+
+.scoresheets__button {
+  padding: 8px;
+  border: 2px solid #9aabd8;
+  cursor: pointer;
+  color: #9aabd8;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: opacity 0.2s ease;
+}
+
+.scoresheets__button:hover {
+  opacity: 0.8;
+}
+
+.scoresheets__button:active {
+  opacity: 0.6;
+}
+
+.greater {
+  color: #059669;
 }
