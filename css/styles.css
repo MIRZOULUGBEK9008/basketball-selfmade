@@ -183,11 +183,12 @@ img {
   color: #f94f6d;
   font-size: 90px;
   line-height: 1.4;
-  padding: 0 19px;
   background-color: #080001;
   border-radius: 5px;
   margin: 0;
   transition: color 0.2s ease;
+  min-width: 151px;
+  text-align: center;
 }
 
 .scoreboard__scoresheets {
