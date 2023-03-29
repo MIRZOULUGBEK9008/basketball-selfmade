@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
-const greaterColor = "greater-color";
+const greaterColor = "greater-color"
 
 let scoresHome = 0;
 let scoresGuest = 0;
@@ -19,14 +19,14 @@ let scoresGuest = 0;
 // checkGreater() function
 function checkGreater() {
   if (scoresHome > scoresGuest) {
-    scoresHome.classList.add(greaterColor);
-    scoresGuest.classList.remove(greaterColor);
+    elHome.classList.add(greaterColor);
+    elGuest.classList.remove(greaterColor);
   } else if (scoresHome < scoresGuest) {
-    scoresGuest.classList.add(greaterColor);
-    scoresHome.classList.remove(greaterColor);
+    elGuest.classList.add(greaterColor);
+    elHome.classList.remove(greaterColor);
   } else {
-    scoresHome.classList.remove(greaterColor);
-    scoresGuest.classList.remove(greaterColor);
+    elHome.classList.remove(greaterColor);
+    elGuest.classList.remove(greaterColor);
   }
 }
 
