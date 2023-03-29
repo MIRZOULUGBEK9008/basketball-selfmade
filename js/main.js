@@ -49,4 +49,5 @@ elReset.addEventListener("click", () => {
   scoresGuest = 0;
   elHome.textContent = scoresHome;
   elGuest.textContent = scoresGuest;
+  checkGreater();
 });
